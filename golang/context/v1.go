@@ -21,9 +21,9 @@ func main() {
 
 func handle(ctx context.Context, duration time.Duration) {
 	select {
-	case <-ctx.Done():
+	case <-ctx.Done(): // 无机会执行到这里，因为先duration超时
 		fmt.Println("handle", ctx.Err())
-	case <-time.After(duration):
+	case <-time.After(duration): // 优先500ms超时，然后才是ctx超时
 		fmt.Println("process request with", duration)
 	}
 }
