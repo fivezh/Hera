@@ -18,13 +18,11 @@ func main() {
 		fmt.Println("main", ctx.Err())
 	}
 
-	// 注意，这里多个函数中ctx.Done()顺序是无保证的，按goroutine调度情况
+	// 注意，这里多个goroutine中ctx.Done()顺序是无保证的，按goroutine调度情况
 	/*
 		[Running] go run "/Users/zhangxiaowu/workspace/github.com/Hera/golang/context/v2.go"
 		main context deadline exceeded
 		handle context deadline exceeded
-
-		[Done] exited with code=0 in 2.307 seconds
 
 		[Running] go run "/Users/zhangxiaowu/workspace/github.com/Hera/golang/context/v2.go"
 		handle context deadline exceeded
